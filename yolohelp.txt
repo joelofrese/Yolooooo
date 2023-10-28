@@ -1,0 +1,29 @@
+PREREQUISITES: 
+- Run yolosetup.sh if you don't meet the prerequisites
+- Have pip, git installed
+- Run python3 make_dataset.py -folder "<folder name>" (ask about this one)
+- Be in the directory that contains yoloscript.sh before calling it
+
+Directory Structure:
+
+<main folder>   - yoloscript.sh
+                - yolohelp.txt (this)
+                - vision        - datasets
+                                - models        - standard      - image_resizer.py
+                                                                - requirements.txt
+                                                                - yolov5m.yaml
+
+BEFORE EACH RUN:
+- jpg images in new folder <folder name>
+- downloaded <folder name>.zip to Downloads folder (yolotxts from v7labs)
+
+IMPLEMENTATION:
+- bash yoloscript.sh "<folder name>" <# of epochs> "<weighting>" "<object #1>" "<object #2 (etc.)>"
+- If you aren't using any weighting, just enter empty quotes: ""
+- yoloscript will take any number of classes/objects greater than 0
+- run the following command to use camera (after plugging it in) once the script is done:
+
+
+FOR TEST:
+bash yoloscript.sh "redbulltest" 100 "" "redbull"
+python3 vision/models/redbulltest/yolov5/detect.py --weights vision/models/redbulltest/model.pt --data vision/models/redbulltest/yolov5/data/data.yaml --source 0
